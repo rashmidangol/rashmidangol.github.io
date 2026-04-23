@@ -10,6 +10,7 @@ permissions:
   pages: write
   id-token: write
 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +20,7 @@ permissions:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # This fixes the 'Node version not supported' error
+          node-version: 22
           cache: 'npm'
 
       - name: Install, build, and upload
@@ -35,3 +36,4 @@ permissions:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
