@@ -1,6 +1,11 @@
 ---
 import { SEO } from "astro-seo";
-const { title, description } = Astro.props;
+
+// Define the props coming from your pages
+const { 
+  title = "Prince Suwal | Portfolio", 
+  description = "Professional portfolio and projects of Prince Suwal." 
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -12,16 +17,26 @@ const { title, description } = Astro.props;
         basic: {
           title: title,
           type: "website",
-          image: "/og-image.jpg",
+          image: "https://princesuwal.github.io/og-contact.jpg", // Must be a full URL for SEO
         }
       }}
       twitter={{
         creator: "@yourhandle"
+      }}
+      extend={{
+        // Add a favicon for better branding
+        link: [{ rel: "icon", href: "/favicon.svg" }],
+        meta: [
+          { name: "twitter:image", content: "https://princesuwal.github.io/og-contact.jpg" },
+          { name: "twitter:title", content: title },
+          { name: "twitter:description", content: description },
+        ],
       }}
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
   </head>
   <body>
-    <slot /> </body>
+    <slot />
+  </body>
 </html>
