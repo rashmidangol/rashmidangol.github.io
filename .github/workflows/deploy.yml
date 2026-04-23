@@ -10,7 +10,7 @@ permissions:
   pages: write
   id-token: write
 
-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
