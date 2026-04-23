@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://princesuwal.github.io/sitemap-index.xml
