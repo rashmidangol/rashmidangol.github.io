@@ -10,15 +10,20 @@ permissions:
   pages: write
   id-token: write
 
-jobs:
-  build:
+build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22 # This fixes the 'Node version not supported' error
+          cache: 'npm'
+
       - name: Install, build, and upload
         uses: withastro/action@v3
-        # No extra config needed; it detects Astro automatically
 
   deploy:
     needs: build
