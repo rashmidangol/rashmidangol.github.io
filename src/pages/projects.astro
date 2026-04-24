@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+const myProjects = [
+  { name: 'GIS Mapper', desc: 'Real-time spatial visualization tool.', tags: ['GIS', 'Leaflet'] },
+  { name: 'Portfolio V1', desc: 'Modern portfolio built with Astro and Tailwind.', tags: ['Astro', 'Vite'] },
+  { name: 'Data Dashboard', desc: 'Analytics platform for complex datasets.', tags: ['React', 'D3.js'] },
+  { name: 'EcoTrack', desc: 'Sustainability tracking mobile app.', tags: ['Native', 'Firebase'] },
+];
+---
+
+<Layout title="Projects | Prince Suwal">
+  <main class="max-w-6xl mx-auto py-20 px-6">
+    <header class="text-center mb-16 reveal">
+      <h1 class="text-5xl font-black mb-4">My <span class="text-primary">Projects</span></h1>
+      <p class="text-xl opacity-70">A collection of things I've built and experimented with.</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {myProjects.map((p, i) => (
+        <div class="group card lg:card-side bg-base-200 shadow-xl reveal overflow-hidden" style={`transition-delay: ${i * 100}ms;`}>
+          <figure class="lg:w-1/3 overflow-hidden">
+            <img src="https://picsum.photos/id/20/400/400" alt="Project" class="group-hover:scale-110 transition-transform duration-500 h-full object-cover"/>
+          </figure>
+          <div class="card-body lg:w-2/3">
+            <h2 class="card-title text-2xl group-hover:text-primary transition-colors">{p.name}</h2>
+            <p>{p.desc}</p>
+            <div class="card-actions justify-end">
+              {p.tags.map(tag => <div class="badge badge-outline">{tag}</div>)}
+              <button class="btn btn-primary btn-sm ml-2">View Case Study</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>

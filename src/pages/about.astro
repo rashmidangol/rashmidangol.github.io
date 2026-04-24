@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | Prince Suwal">
+  <main class="max-w-4xl mx-auto py-20 px-6">
+    <h1 class="text-5xl font-black mb-8 reveal">About <span class="text-primary">Me</span></h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div class="reveal" style="transition-delay: 200ms;">
+        <p class="text-xl leading-relaxed mb-6">
+          I am a passionate <span class="text-secondary font-bold">Software Developer</span> with a focus on building interactive web experiences and spatial data tools. 
+        </p>
+        <p class="opacity-80 mb-6">
+          My journey in tech is driven by curiosity and the desire to solve complex problems through clean, efficient code. When I'm not coding, you can find me exploring the latest in GIS mapping and UI/UX design.
+        </p>
+      </div>
+
+      <div class="card bg-base-200 p-8 reveal" style="transition-delay: 400ms;">
+        <h3 class="text-2xl font-bold mb-4">Tech Stack</h3>
+        <div class="flex flex-wrap gap-2">
+          {['Astro', 'Tailwind', 'daisyUI', 'JavaScript', 'GIS', 'PostgreSQL', 'React'].map(skill => (
+            <div class="badge badge-primary badge-lg p-4">{skill}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

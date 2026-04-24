@@ -1,5 +1,7 @@
 ---
+import "../assets/app.css";
 import { SEO } from "astro-seo";
+import ThemeController from "../components/ThemeController.astro";
 
 // Define the props coming from your pages
 const { 
@@ -8,7 +10,7 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <SEO
       title={title}
@@ -17,14 +19,13 @@ const {
         basic: {
           title: title,
           type: "website",
-          image: "https://princesuwal.github.io/og-contact.jpg", // Must be a full URL for SEO
+          image: "https://princesuwal.github.io/og-contact.jpg",
         }
       }}
       twitter={{
         creator: "@yourhandle"
       }}
       extend={{
-        // Add a favicon for better branding
         link: [{ rel: "icon", href: "/favicon.svg" }],
         meta: [
           { name: "twitter:image", content: "https://princesuwal.github.io/og-contact.jpg" },
@@ -33,10 +34,93 @@ const {
         ],
       }}
     />
+    <script is:inline>
+      // Prevent FOUC (Flash of Unstyled Content) by setting theme immediately
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
   </head>
-  <body>
-    <slot />
+  
+  <body class="min-h-screen bg-base-100 flex flex-col">
+    <nav class="navbar sticky top-0 z-50 bg-base-100/70 backdrop-blur-md border-b border-base-200 px-4 md:px-12">
+      <div class="flex-1">
+        <a href="/" class="btn btn-ghost text-xl font-mono tracking-tighter">Prince Suwal</a>
+      </div>
+      <div class="flex-none flex items-center gap-8">
+        <ul class="menu menu-horizontal gap-8 hidden sm:flex font-medium">
+          <li>
+            <a href="/about" class="relative group py-2">
+              <span>About</span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+          <li>
+            <a href="/projects" class="relative group py-2">
+              <span>Projects</span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+        </ul>
+        <ThemeController />
+      </div>
+    </nav>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300">
+      <aside>
+        <p class="font-bold text-lg">Prince Suwal</p> 
+        <p>Software Developer • GIS Specialist</p>
+        <p>Copyright © 2026 - All rights reserved</p>
+      </aside>
+    </footer>
+
+    <script>
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      // This runs on every page load
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Global Scroll Reveal Styles */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Custom Scrollbar for a "pro" look */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--b1));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--p));
+    border-radius: 10px;
+  }
+</style>
