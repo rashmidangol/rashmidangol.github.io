@@ -9,6 +9,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://princesuwal.github.io',
+  site: 'https://rashmidangol.github.io',
   integrations: [sitemap()]
 });

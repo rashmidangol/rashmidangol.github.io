@@ -5,8 +5,8 @@ import ThemeController from "../components/ThemeController.astro";
 
 // Define the props coming from your pages
 const { 
-  title = "Prince Suwal | Portfolio", 
-  description = "Professional portfolio and projects of Prince Suwal." 
+  title = "Rashmi Dangol | Portfolio", 
+  description = "Professional portfolio and projects of Rashmi Dangol." 
 } = Astro.props;
 ---
 
@@ -19,16 +19,16 @@ const {
         basic: {
           title: title,
           type: "website",
-          image: "https://princesuwal.github.io/og-contact.jpg",
+          image: "https://rashmidangol.github.io/og-contact.jpg",
         }
       }}
       twitter={{
-        creator: "@princesuwal"
+        creator: "@rashmidangol"
       }}
       extend={{
         link: [{ rel: "icon", href: "/favicon.svg" }],
         meta: [
-          { name: "twitter:image", content: "https://princesuwal.github.io/og-contact.jpg" },
+          { name: "twitter:image", content: "https://rashmidangol.github.io/og-contact.jpg" },
           { name: "twitter:title", content: title },
           { name: "twitter:description", content: description },
         ],
@@ -46,7 +46,7 @@ const {
   <body class="min-h-screen bg-base-100 flex flex-col">
     <nav class="navbar sticky top-0 z-50 bg-base-100/70 backdrop-blur-md border-b border-base-200 px-4 md:px-12">
       <div class="flex-1">
-        <a href="/" class="btn btn-ghost text-xl font-mono tracking-tighter">Prince Suwal</a>
+        <a href="/" class="btn btn-ghost text-xl font-mono tracking-tighter">Rashmi Dangol</a>
       </div>
       <div class="flex-none flex items-center gap-8">
         <ul class="menu menu-horizontal gap-8 hidden sm:flex font-medium">
@@ -73,8 +73,9 @@ const {
 
     <footer class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300">
       <aside>
-        <p class="font-bold text-lg">Prince Suwal</p> 
-        <p>Software Developer • GIS Specialist</p>
+        <p class="font-bold text-lg">Rashmi Dangol</p> 
+        <p>Digital Agriculture • GIS</p>
+        <p>FAA 107 Certified Remote Pilot</p>
         <p>Copyright © 2026 - All rights reserved</p>
       </aside>
     </footer>
