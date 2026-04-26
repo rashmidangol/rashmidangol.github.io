@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Classification in Pastureland | Rashmi Dangol">
+  <main class="max-w-4xl mx-auto py-20 px-6">
+    <h1 class="text-5xl font-black mb-8 reveal">Remote Sensing-based Classification in Pastureland</h1>
+    
+    <p class="text-xl leading-relaxed mb-6 reveal" style="transition-delay: 200ms;">
+      Monitored the spatial distribution of weeds and implemented classification models for weed mapping
+    </p>
+    
+    <img src="/assets/workflow.png" alt="Workflow to create orthomosaic" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg mb-6 reveal" style="transition-delay: 400ms;" />
+    
+    <p class="text-lg leading-relaxed mb-6 reveal" style="transition-delay: 600ms;">
+      Vegetative Indices such as Excess Green Index (ExG) and Normalized Green-Red Difference Index (NGRDI) were calculated, and a Support Vector Machine model was chosen for classification in ArcGIS Pro.
+    </p>
+    
+    <h3 class="text-3xl font-bold mb-4 reveal" style="transition-delay: 800ms;">Excess Green Index (EGI) Map</h3>
+    <figure class="text-center mb-6 reveal" style="transition-delay: 1000ms;">
+        <img src="/assets/EGI.jpg" alt="Excess Green Index (EGI) Map" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg" style="max-width: 650px;" />
+        <figcaption class="text-lg text-white-900 mt-4 font-semibold">Highlights vegetation using RGB-based index derived from drone imagery</figcaption>
+    </figure>
+    
+    <h3 class="text-3xl font-bold mb-4 reveal" style="transition-delay: 1200ms;">Classification Map - Support Vector Machine (SVM)</h3>
+    <img src="/assets/SVM.png" alt="Classification map using Support Vector Machine (SVM)" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg reveal" style="transition-delay: 1400ms;" />
+  </main>
+</Layout>

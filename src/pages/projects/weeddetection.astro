@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Weed Detection | Rashmi Dangol">
+  <main class="max-w-4xl mx-auto py-20 px-6">
+    <h1 class="text-5xl font-black mb-8 reveal">Weed Recognition with Deep Learning Approaches</h1>
+    
+    <p class="text-xl leading-relaxed mb-6 reveal" style="transition-delay: 200ms;">
+      Developed and evaluated a deep learning-based weed identification system for recognizing six common and invasive weed species in pastureland in digital images.
+    </p>
+    
+    <h3 class="text-3xl font-bold mb-4 reveal" style="transition-delay: 400ms;">Technical Approach</h3>
+    
+    <h4 class="text-2xl font-semibold mb-4">Detection and Segmentation Model</h4>
+    <p class="mb-4">Comparing the performance of various deep learning architectures:</p>
+    <ul class="list-disc list-inside mb-6">
+      <li>YOLOv8 (You Only Look Once, version 8)</li>
+      <li>YOLOv11 (You Only Look Once, version 11)</li>
+      <li>RT-DETR (Real-Time Detection Transformer)</li>
+    </ul>
+    
+    <img src="/assets/weed_detection.png" alt="Weed Detection and Segmentation Results using YOLOv11-seg" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg reveal" style="transition-delay: 600ms;" />
+  </main>
+</Layout>

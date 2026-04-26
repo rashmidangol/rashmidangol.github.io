@@ -29,19 +29,19 @@ import rashmiImage from '../assets/rashmi.jpg';
             Hello, I'm <span class="text-primary">Rashmi Dangol</span>
           </h1>
           <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6 italic">
-            Digital Agriculturalist
+            Digital Agronomist | Geospatial Analysis Enthusiast
           </h2>
           <p class="text-lg md:text-xl opacity-0 animate-fade-in-delayed leading-relaxed">
-            I specialize in crafting high-performance web applications and 
-            <span class="text-accent font-semibold">GIS-driven solutions</span>. 
-            Focused on merging technical precision with intuitive user experiences.
+            I specialize in precision agriculture, leveraging drone-based data workflows to solve real-world challenges in rangeland systems through
+            <span class="text-accent font-semibold">data-driven solutions</span>. 
+           
           </p>
           <div class="opacity-0 animate-pop-in mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
             <a href="/projects" class="btn btn-primary btn-lg shadow-xl hover:scale-105 transition-all">
               Explore Projects
             </a>
-            <a href="/resume.pdf" class="btn btn-outline btn-lg hover:bg-base-300 transition-all">
-              Download CV
+            <a href="assets/DangolRashmi-Resume.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-lg hover:bg-base-300 transition-all">
+              Download Resume
             </a>
           </div>
         </div>
@@ -54,30 +54,40 @@ import rashmiImage from '../assets/rashmi.jpg';
           <h2 class="text-4xl font-bold mb-2">Featured Work</h2>
           <div class="h-1 w-20 bg-primary"></div>
         </div>
-        <a href="/projects" class="link link-primary hidden md:block mt-4">View all projects →</a>
+        <a href="/projects" class="link link-primary hidden md:block mt-4 text-xl">View all projects →</a>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {['Project Alpha', 'Project Beta', 'Project Gamma'].map((project, index) => (
+        {[
+          { name: 'Weed Detection', img: '/assets/Ranch.JPG',desc: 'YOLO-based weed detection system using deep learning for accurate species identification',  tags: ['YOLO', 'RT-DETR'] }, 
+          { name: 'Classification in Pasture', img: '/assets/ortho.png',desc: 'Drone-based mapping and vegetation classification using SVM and spectral indices',  tags: ['Drone Mapping', 'Vegetative Indices','SVM'] }, 
+          { name: 'Flood Analysis', img: '/assets/LandCover_Kerr.jpg', desc: 'Remote sensing analysis of flood dynamics using Sentinel-2 and soil moisture data',  tags: ['Sentinel-2', 'Soil_data','Land Cover'] } 
+        ].map((project, index) => (
           <div 
             class="group card bg-base-100 shadow-xl border border-base-300 reveal opacity-0 translate-y-24 scale-95 transition-all duration-1000 ease-out hover:shadow-primary/20"
             style={`transition-delay: ${index * 150}ms;`}
           >
             <figure class="relative overflow-hidden aspect-video">
               <img 
-                src="https://picsum.photos/id/10/400/225" 
-                alt={project} 
+                src={project.img} 
+                alt={project.name} 
                 class="transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
               />
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
             </figure>
             
             <div class="card-body">
-              <h2 class="card-title text-2xl group-hover:text-primary transition-colors">{project}</h2>
-              <p class="opacity-70">Interactive spatial data visualization and analysis tool.</p>
-              <div class="card-actions justify-end mt-4">
-                <div class="badge badge-primary badge-outline">GIS</div>
-                <div class="badge badge-secondary badge-outline">Astro</div>
+              <h2 class="card-title text-2xl group-hover:text-primary transition-colors">{project.name}</h2>
+              <p class="opacity-70">{project.desc}</p>
+              <div class="card-actions justify-start mt-4">
+                {project.tags.map((tag, tagIndex) => {
+                  const badgeClasses = [
+                    'badge badge-primary badge-outline',
+                    'badge badge-secondary badge-outline',
+                    'badge badge-accent badge-outline',
+                  ];
+                  return <div class={badgeClasses[tagIndex % badgeClasses.length]}>{tag}</div>;
+                })}
               </div>
             </div>
           </div>
@@ -88,7 +98,7 @@ import rashmiImage from '../assets/rashmi.jpg';
     <section class="py-20 bg-base-200">
        <div class="max-w-4xl mx-auto text-center px-6 reveal">
           <h2 class="text-3xl font-bold mb-6">Want to know more?</h2>
-          <p class="text-lg mb-8 opacity-80">I'm currently open to new opportunities and collaborations in web development and geospatial technology.</p>
+          <p class="text-lg mb-8 opacity-80">I'm open to new opportunities and collaborations in remote sensing and geospatial technology.</p>
           <a href="/about" class="btn btn-secondary btn-outline px-10">Read My Story</a>
        </div>
     </section>
