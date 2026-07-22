@@ -24,7 +24,7 @@ I am Rashmi Dangol, a research assistant at Texas A&M University, where I work o
 
 **Digital Enumerator/Surveyor @ International Maize and Wheat Improvement Center (CIMMYT)**
 - Led a team of six members to conduct baseline and end-line surveys using Kobo_Toolbox for the Beneficiary-Based Survey of the National Seed and Fertilizer Project (NSAF) to understand the effectiveness of ICT tools in agriculture in Nepal
-- 
+
 ### Some Maps
 <embed type="text/html" src="/assets/tamu_map.html" height="650" width="850">
 
