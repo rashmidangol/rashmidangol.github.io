@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredPosters = [
+  {
+    title: 'Deep Learning for Weed Detection in Pastures',
+    image: '/assets/posters/poster.png',
+  },
+  {
+    title: 'Drone-based Classification Map',
+    image: '/assets/posters/poster2.png',
+  },
+];
+---
+
+<Layout title="Graduate Work | Rashmi Dangol">
+  <main class="max-w-6xl mx-auto py-20 px-6">
+    <h1 class="text-5xl font-black mb-8 reveal">Graduate <span class="text-primary">Work</span></h1>
+
+    <section class="card bg-base-200 p-8 mb-12 reveal">
+      <h2 class="text-3xl font-bold mb-4">Research Assistant</h2>
+      <p class="text-lg leading-relaxed opacity-80 mb-3">
+        My graduate work focused on geospatial analysis, remote sensing, and applied data-driven methods for agriculture and environmental systems.
+      </p>
+      <p class="text-lg leading-relaxed opacity-80 mb-3">
+        <strong>Remote Sensing Research:</strong> Conducted large-scale experiments utilizing satellite and UAV imagery to evaluate pasture management strategies.
+      </p>
+      <p class="text-lg leading-relaxed opacity-80 mb-3">
+        <strong>AI Integration:</strong> Developed and trained YOLO computer vision models for automated weed detection, reducing manual scouting time and improving precision in management.
+      </p>
+      <p class="text-lg leading-relaxed opacity-80 mb-3">
+        <strong>Web-Based Data Visualization:</strong> Built interactive web applications using Dashboards, Experience Builder, and Story Maps to visualize environmental and crop data.
+      </p>
+      <p class="text-lg leading-relaxed opacity-80">
+        <strong>Advanced Analytics:</strong> Performed image mosaicking, calibration, and vegetative index calculations (NDVI, NDWI) to monitor forest health.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-bold mb-6 reveal">Featured Posters</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {featuredPosters.map((poster, index) => (
+          <div class="card bg-base-200 overflow-hidden shadow-xl reveal" style={`transition-delay: ${index * 150}ms;`}>
+            <a href={poster.image} target="_blank" rel="noopener">
+              <img src={poster.image} alt={poster.title} class="w-full h-[520px] object-cover hover:scale-[1.01] transition-transform duration-300" />
+            </a>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{poster.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
