@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const awards = [
+    {
+    title: 'Graduate Student Travel Award',
+    year: '2025',
+    institution: 'Texas A&M University',
+  },
+  {
+    title: 'James L. Fisher Outstanding Thesis Award',
+    year: '2024',
+    institution: 'Illinois State University',
+  },
+  {
+    title: 'Outstanding Graduate Student Recognition',
+    year: '2024',
+    institution: 'Illinois State University',
+  },
+  {
+    title: 'Growmark Foundation Scholarship',
+    year: '2023',
+    institution: 'Growmark, Inc.',
+  },
+];
+
+const awardImages = [
+  { src: '/assets/awards/award1.jpg', alt: 'Award and certificate recognition' },
+  { src: '/assets/awards/award2.jpg', alt: 'Award and certificate recognition' },
+  { src: '/assets/awards/award3.jpg', alt: 'Award and certificate recognition' }
+];
+---
+
+<Layout title="Awards | Rashmi Dangol">
+  <main class="max-w-6xl mx-auto py-20 px-6">
+    <h1 class="text-5xl font-black mb-8 reveal">My <span class="text-primary">Honor & Awards</span></h1>
+
+    <section class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold reveal">Awards & Recognition</h2>
+        {awards.map((award, index) => (
+          <article class="card bg-base-200 p-6 reveal" style={`transition-delay: ${(index + 1) * 150}ms;`}>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-bold">{award.title}</h3>
+                <p class="text-lg opacity-80 mt-2">{award.institution}</p>
+              </div>
+              <span class="badge badge-primary badge-lg shrink-0">{award.year}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 lg:sticky lg:top-20 reveal" style="transition-delay: 300ms;">
+        {awardImages.map((image, index) => (
+          <a href={image.src} target="_blank" rel="noopener" class={index === 2 ? 'col-span-1' : ''}>
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover rounded-box shadow-lg hover:scale-[1.02] transition-transform duration-300"
+            />
+          </a>
+        ))}
+      </div>
+      <div class="grid grid-cols-1 gap-4 lg:sticky lg:top-28 reveal" style="transition-delay: 300ms;"></div>
+        <a href="/assets/awards/award4.jpg" target="_blank" rel="noopener" class="card bg-base-200 overflow-hidden hover:scale-[1.02] transition-transform reveal">
+            <img src="/assets/awards/award4.jpg" alt="Other certificate" class="w-full h-full object-cover" />
+        </a>
+      </div>  
+    </section>
+  </main>
+</Layout>
